@@ -25,10 +25,6 @@ class Instructor::LessonsController < ApplicationController
     end
   end
 
-  def current_lesson
-    @current_lesson ||= Lesson.find(params[:id])
-  end
-
   def require_authorized_for_current_section
     if current_section.course.user != current_user
       return render plain: 'Unauthorized', status: :unauthorized
@@ -38,6 +34,11 @@ class Instructor::LessonsController < ApplicationController
   helper_method :current_section
   def current_section
     @current_section ||= Section.find(params[:section_id])
+  end
+
+  helper_method :current_lesson
+  def current_lesson
+    @current_lesson ||= Lesson.find(params[:id])
   end
 
   def lesson_params
