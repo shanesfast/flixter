@@ -30,26 +30,45 @@
 <div class="booyah-box col-10 offset-1">
   <h1 class="text-center"><%= current_course.title %></h1>
   <% if current_course.image.present? %>
+    <div class="text-center">
       <%= image_tag current_course.image.url, class: "img-fluid" %>
+    </div>
   <% end %>
-  <br />
-  <%= link_to 'Preview As Student...', course_path(current_course), class: 'btn btn-warning float-right' %>
-  <br class="clr" />
-  <div class="text-center">
-    <%= link_to 'Add a new section...', new_instructor_course_section_path(current_course), class: 'btn btn-primary btn-lg' %>
+  <div class="add-section-box text-center">
+    <%= link_to 'Add a New Section', new_instructor_course_section_path(current_course), class: 'btn btn-primary btn-lg' %>
+    <%= link_to 'Preview as Student', course_path(current_course), class: 'btn btn-warning btn-lg' %>
+    <br class="clr" />
   </div>
 
   <ul class="sections">
     <% current_course.sections.rank(:row_order).each do |section| %>
-      <li data-update-url=<%= instructor_section_path(section) %>>
-        <%= section.title %>
-        <%= link_to 'New Lesson', new_instructor_section_lesson_path(section), class: 'float-right btn btn-primary btn-sm' %>
+      <li data-update-url=<%= instructor_section_path(section) %> class="section-li">
+        <div class="header-box row">
+          <div class="header col-6">
+            <span class="fa fa-ellipsis-v"></span>
+            <%= section.title %>
+          </div>
+          <div class="col-6 d-flex flex-row-reverse">
+            <%= link_to 'New Lesson', new_instructor_section_lesson_path(section), class: 'btn btn-primary btn-sm' %>
+          </div>
+        </div>
         <ul class="lessons">
           <% section.lessons.rank(:row_order).each do |lesson| %>
             <li data-update-url=<%= instructor_lesson_path(lesson) %>>
-              <b><%= lesson.title %></b>
-              -
-              <%= lesson.subtitle %>
+              <div class="row">
+                <div class="col-1">
+                <span class="fa fa-ellipsis-v"></span>
+                </div>
+                <div class="col-11 text-center">
+                  <p>
+                    <b><%= lesson.title %></b>
+                  </p>
+                  <p>
+                    <%= lesson.subtitle %>
+                  </p>
+                </div>
+              </div>
+              <br class="clr" />
             </li>
           <% end %>
         </ul>
