@@ -1,24 +1,26 @@
-# README
+# FLIXTER
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Share your knowledge by creating a course which you can sell to knowledge hungry students. If you would rather learn something new, sign up and select a course which can be paid for with a debit or credit card via stripe. You can be both a student and a teacher on Flixter! Feel free to fork this project and make it your own!
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+Made with `Ruby 2.5.3` and `Rails ~> 5.2.3`<br />
+Dependencies managed with `Bundler version 2.0.2`
 
-* System dependencies
+Run:
+```bash
+bundle install
+```
+..to install dependencies. 
 
-* Configuration
+Then run the following commands to build the database:
 
-* Database creation
+```ruby
+rake db:create
+rake db:schema:load
+```
 
-* Database initialization
+That's it! Make it your own. 
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
