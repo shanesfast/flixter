@@ -1,5 +1,7 @@
 # FLIXTER
 
+![Flixter](https://i.imgur.com/2FxDVp9.png)
+
 Share your knowledge by creating a course which you can sell to knowledge hungry students. If you would rather learn something new, sign up and select a course which can be paid for with a debit or credit card via stripe. You can be both a student and a teacher on Flixter! Feel free to fork this project and make it your own!
 
 ## Installation
